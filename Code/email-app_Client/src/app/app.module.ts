@@ -7,6 +7,12 @@ import { EmailComposeComponent } from './email-compose/email-compose.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { RouterModule, Routes } from '@angular/router';
+const routes: Routes = [
+  // Define routes for navigation
+  {path: '',component: EmailComposeComponent}, // Route to EmailComposeComponent for home page
+  {path:'reset', component: ResetPasswordComponent} // Route to ResetPasswordComponent for reset page
+]
 
 @NgModule({
   declarations: [
@@ -18,7 +24,8 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [
     provideClientHydration()
